@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "zaki-24-realtime",
+    "site": "tuts-firebase-realtime-database",
     "source": ".",
     "ignore": [
       "firebase.json",

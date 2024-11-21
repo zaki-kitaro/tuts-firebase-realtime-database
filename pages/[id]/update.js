@@ -1,6 +1,8 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import useUpdateValue from '../hooks/useUpdateValue'
+import styles from '../../styles/Home.module.css'
+import useUpdateValue from '../../hooks/useUpdateValue'
+import { getDatabase, ref, child, get } from 'firebase/database'
+import firebaseApp from '../../services/firebase-sdk'
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -30,11 +32,17 @@ const Home = () => {
     await updateAPost.updateDoc(path, value)
   }
 
+
+
   useEffect(() => {
     const fetchTask = async () => {
-      const ref = doc(db, "tasks", id);
-      const snapshot = await getDoc(ref);
-      setTask({ id: snapshot.id, ...snapshot.data() });
+      const path= '/posts/' + id
+      const database = getDatabase(firebaseApp)
+      const rootReference = ref(database)
+      const snapshot = await get(child(rootReference, path))
+      const dbValue = snapshot.val()
+      console.log(dbValue)     
+      setTask({ id: dbValue.id, ...dbValue.data() });
     };
 
     if (id) {

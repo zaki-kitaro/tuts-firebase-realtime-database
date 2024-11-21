@@ -64,7 +64,7 @@ const Home = () => {
              </div>
                            
              <div className="flex item-right gap-2">
-               <Link className="text-blue-700 underline hover:no-underline" href={`/${item[0]}/edit`}>Edit</Link>  
+               <Link className="text-blue-700 underline hover:no-underline" href={`/${item[0]}/update`}>Update</Link>  
                <Link className="text-red-500 underline hover:no-underline" href={`/${item[0]}/delete`}>Delete</Link>              
              </div>
            </div> 
