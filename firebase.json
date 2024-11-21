@@ -1,0 +1,14 @@
+{
+  "hosting": {
+    "site": "zaki-24-realtime",
+    "source": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "frameworksBackend": {
+      "region": "asia-east1"
+    }
+  }
+}
