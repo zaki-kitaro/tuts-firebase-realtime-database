@@ -14,7 +14,7 @@ const Home = () => {
 
    const dataPosts = Object.values(posts.snapshot)
    const dataPosts2 = Object.entries(posts.snapshot)
-   console.log(dataPosts2)
+   //console.log(dataPosts2)
 
   return (
     
@@ -65,7 +65,7 @@ const Home = () => {
                            
              <div className="flex item-right gap-2">
                <Link className="text-blue-700 underline hover:no-underline" href={`/${item[0]}/update`}>Update</Link>  
-               <Link className="text-red-500 underline hover:no-underline" href={`/${item[0]}/delete`}>Delete</Link>              
+               <Link className="text-red-500 underline hover:no-underline" href={`/${item[0]}/edit`}>Edit</Link>              
              </div>
            </div> 
             )

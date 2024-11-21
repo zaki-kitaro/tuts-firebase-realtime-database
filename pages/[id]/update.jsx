@@ -19,7 +19,6 @@ const Home = () => {
     setTask({ ...task, [e.target.name]: e.target.value });
   };
   const updateAPost = useUpdateValue()
-  const update = useUpdateValue()
 
   const updatePost = async () => {
     const path = '/posts'
@@ -39,10 +38,32 @@ const Home = () => {
       const path= '/posts/' + id
       const database = getDatabase(firebaseApp)
       const rootReference = ref(database)
-      const snapshot = await get(child(rootReference, path))
-      const dbValue = snapshot.val()
-      console.log(dbValue)     
-      setTask({ id: dbValue.id, ...dbValue.data() });
+      //const snapshot2 = await get(child(rootReference, path))
+      //console.log(snapshot)
+      //const data = snapshot2.val()
+      //console.log(data)     
+     // setTask({ id: data.id, ...data.data() });
+
+      
+      get(child(rootReference,path)).then((snapshot) => {
+        if (snapshot.exists()) {
+          
+          const usersArray = Object.entries(snapshot.val()).map(([id,data])=> ({
+            id,
+            ...data,
+          }));
+          setTask(usersArray);
+          console.log(snapshot);
+        } else {
+          console.log("No data available");
+        }
+      }).catch((error) => {
+        console.error(error);
+      });
+
+
+
+
     };
 
     if (id) {

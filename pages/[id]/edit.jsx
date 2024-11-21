@@ -1,4 +1,4 @@
-import { db } from "@/config/firebase";
+import { db } from "../../services/firebase-sdk";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import Head from "next/head";
 import { useRouter } from "next/router";
