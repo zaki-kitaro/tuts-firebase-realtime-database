@@ -45,9 +45,9 @@ const Home = () => {
   <button
   onClick={createNewProduct}
   style={{ background: 'green', padding: 8 }}
->
-  Set Value With Key
-</button>
+  >
+    Set Value With Key
+  </button>
 
   return (
     <div className={styles.container}>
